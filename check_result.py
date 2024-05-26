@@ -90,7 +90,7 @@ def run(playwright: Playwright) -> None:
             retry_cnt += 1
         result_info = result_info.inner_text().split("이전")[0].replace("\n", " ")
         hook_slack(f"로또 결과: {result_info}")
-
+        print(f"로또 결과: {result_info}")
         # 번호 추출하기
         # last index가 보너스 번호
         lucky_number = (
@@ -156,6 +156,7 @@ def run(playwright: Playwright) -> None:
         context.close()
         browser.close()
     except Exception as exc:
+        print(exc)
         hook_slack(exc)
         context.close()
         browser.close()
