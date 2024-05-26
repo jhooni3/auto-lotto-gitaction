@@ -59,7 +59,10 @@ def run(playwright: Playwright) -> None:
         # ================================================================ #
         # 초기 세팅 및 로그인
         # ================================================================ #
-
+        print(USER_ID)
+        print(SLACK_BOT_TOKEN)
+        print(SLACK_CHANNEL)
+        
         browser = playwright.chromium.launch(headless=True)  # chrome 브라우저를 실행
         context = browser.new_context()
 
@@ -151,7 +154,7 @@ def run(playwright: Playwright) -> None:
                 + "\n"
             )
         hook_slack(f"> 이번주 나의 행운의 번호 결과는?!?!?!\n{result_msg}")
-
+        print(f"> 이번주 나의 행운의 번호 결과는?!?!?!\n{result_msg}")
         # End of Selenium
         context.close()
         browser.close()
