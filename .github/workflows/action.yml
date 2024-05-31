@@ -4,6 +4,9 @@ on:
   schedule:
     - cron: "*/5 * * * *" # UST 기준의 크론. UST 23:50 는 KST 08:50 cron: "50 23 * * 5" 
   workflow_dispatch:
+  push:
+    branches:
+      - 'master'
 
 jobs:
   build:
